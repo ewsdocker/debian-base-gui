@@ -8,7 +8,7 @@
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 3.0.3
+# @version 3.0.2
 # @copyright © 2017, 2018. EarthWalk Software.
 # @license Licensed under the Academic Free License version 3.0
 # @package debian-base-gui
@@ -26,7 +26,7 @@
 #
 # =========================================================================
 # =========================================================================
-FROM ewsdocker/debian-base:3.0.3
+FROM ewsdocker/debian-base:3.0.2
 MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
