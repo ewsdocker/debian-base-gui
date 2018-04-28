@@ -3,7 +3,7 @@
 #
 #	Dockerfile
 #	  Dockerfile for debian-base-gui (docker gui utilities) 
-#		in a Debian 9.4 docker container.
+#		in a Debian docker container.
 #
 # =========================================================================
 #
@@ -47,7 +47,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LMSBUILD_VERSION="3.0.5"
 ENV LMSBUILD_NAME=debian-base-gui 
 ENV LMSBUILD_DOCKER="ewsdocker/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
-ENV LMSBUILD_PACKAGE="debian-9.4"
+ENV LMSBUILD_PACKAGE="debian-base:3.0.5"
 
 # =========================================================================
 
@@ -69,9 +69,9 @@ RUN apt-get -y update \
             xauth \
             xz-utils \
  && apt-get clean all  \
- && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt 
+ && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt  
 
 # =========================================================================
 
-ENTRYPOINT ["/my_init"]
+ENTRYPOINT ["/my_init", "--quiet"]
 CMD ["/bin/bash"]
