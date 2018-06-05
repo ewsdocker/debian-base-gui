@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=/home/jay/.local/bin/debian-base-gui debian-base-gui
+Icon=/home/jay/.local/share/icons/hicolor/16x16/apps/default.png
+Type=Application
+Terminal=false
+GenericName=Debian-Base-Gui
+Name=Debian-Base-Gui
+StartupNotify=false
+Categories=Programming
