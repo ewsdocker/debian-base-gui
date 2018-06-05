@@ -71,7 +71,6 @@ RUN apt-get -y update \
  && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt  
 
 # =========================================================================
-# =========================================================================
 
 COPY scripts/. /
 
