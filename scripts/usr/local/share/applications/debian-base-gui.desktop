@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=/home/jay/.local/bin/docker-deb-start-0.0.1 debian-base-gui
+Exec=/home/jay/.local/bin/docker-deb-start-0.0.1 debian-base-gui-3.0.8
 Icon=/home/jay/.local/share/icons/hicolor/16x16/apps/default.png
 Type=Application
 Terminal=true

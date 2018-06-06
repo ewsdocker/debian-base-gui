@@ -2,7 +2,7 @@
 # =========================================================================
 # =========================================================================
 #
-#	debian-base-gui.run
+#	debian-base-gui-3.0.8
 #	  docker run command for debian-base-gui
 #		in a Debian 9 docker image.
 #
@@ -41,5 +41,5 @@
 docker run -v /etc/localtime:/etc/localtime:ro \
            -v ${HOME}/.config/docker/debian-base-gui:/root \
            -v ${HOME}:/user \
-           --name=debian-base-gui \
-       ewsdocker/debian-base-gui:latest
+           --name=debian-base-gui-3.0.8 \
+       ewsdocker/debian-base-gui:3.0.8
