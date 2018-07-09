@@ -8,7 +8,7 @@
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 3.0.8
+# @version 3.0.9
 # @copyright © 2017, 2018. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ewsdocker/debian-base-gui
@@ -37,17 +37,17 @@
 #
 # =========================================================================
 # =========================================================================
-FROM ewsdocker/debian-base:3.0.8
+FROM ewsdocker/debian-base:3.0.9
 MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # =========================================================================
 
-ENV LMSBUILD_VERSION="3.0.8"
+ENV LMSBUILD_VERSION="3.0.9"
 ENV LMSBUILD_NAME=debian-base-gui 
 ENV LMSBUILD_DOCKER="ewsdocker/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
-ENV LMSBUILD_PACKAGE="debian-base-gui:3.0.8"
+ENV LMSBUILD_PACKAGE="debian-base-gui:3.0.9"
 
 # =========================================================================
 
