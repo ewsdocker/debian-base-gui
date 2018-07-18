@@ -7,6 +7,12 @@ ____
 Please visit our [**ewsdocker/debian-base-gui Wiki**](https://github.com/ewsdocker/debian-base-gui/wiki) for complete documentation of this docker image.  
 ____  
 
+## NOTE
+
+**ewsdocker/debian-base-gui** is designed to be used on a Linux system configured to support **Docker** _user namespaces_.  Refer to [ewsdocker Containers and Docker User Namespaces](https://github.com/ewsdocker/ewsdocker.github.io/wiki/UserNS-Overview) for an overview and additional information.  
+
+____  
+
 ### About Docker Versions  
 
 Find out all that you need to know about the docker Tags, and the version of **ewsdocker/debian-base-gui** represented, at [Docker Tags](https://github.com/ewsdocker/debian-base-gui/wiki/DockerTags).  
