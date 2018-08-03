@@ -2,7 +2,7 @@
 # =========================================================================
 # =========================================================================
 #
-#	debian-base-gui-9.5.0
+#	debian-base-gui-9.5.1
 #	  docker run command for debian-base-gui
 #		in a Debian 9 docker image.
 #
@@ -43,7 +43,7 @@ docker run --rm \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
            -v /etc/localtime:/etc/localtime:ro \
-           -v ${HOME}/.config/docker/debian-base-gui:/root \
            -v ${HOME}:/user \
-           --name=debian-base-gui-9.5.0 \
-       ewsdocker/debian-base-gui:9.5.0
+           -v ${HOME}/.config/docker/debian-base-gui-9.5.1:/root \
+           --name=debian-base-gui-9.5.1 \
+       ewsdocker/debian-base-gui:9.5.1
