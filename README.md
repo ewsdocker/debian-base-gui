@@ -89,6 +89,7 @@ Perform the steps in *Test 1* to open the mousepad application.  Using the mouse
 
 ____  
 
+
 **Copyright © 2018. EarthWalk Software.**  
 **Licensed under the GNU General Public License, GPL-3.0-or-later.**  
 
