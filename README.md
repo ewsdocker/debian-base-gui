@@ -53,6 +53,7 @@ ____
 **ewsdocker/debian-base:9.5.0**  
   
     docker run -it \
+               --rm \
                -e DISPLAY=unix${DISPLAY} \
                -v /tmp/.X11-unix:/tmp/.X11-unix \
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
@@ -66,7 +67,7 @@ ____
 ____  
 
 
-** Simple tests**  
+**Simple tests**  
 
 **Test 1**  
 
@@ -86,5 +87,24 @@ Add a new volume to the command above, mapping a local folder container text doc
 
 Perform the steps in *Test 1* to open the mousepad application.  Using the mousepad file manager, browse to the new folder (*/documents*) and open a text document there.  
 
-______  
+____  
+
+**Copyright © 2018. EarthWalk Software.**  
+**Licensed under the GNU General Public License, GPL-3.0-or-later.**  
+
+This file is part of **ewsdocker/debian-base-gui**.  
+
+**ewsdocker/debian-base-gui** is free software: you can redistribute 
+it and/or modify it under the terms of the GNU General Public License 
+as published by the Free Software Foundation, either version 3 of the 
+License, or (at your option) any later version.  
+
+**ewsdocker/debian-base-gui** is distributed in the hope that it will 
+be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.  
+
+You should have received a copy of the GNU General Public License
+along with **ewsdocker/debian-base-gui**.  If not, see 
+<http://www.gnu.org/licenses/>.  
 
