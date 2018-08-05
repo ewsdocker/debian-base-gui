@@ -1,4 +1,4 @@
-## debian-base-gui  
+## ewsdocker/debian-base-gui  
 
 **ewsdocker/debian-base-gui** is built on the **ewsdocker/debian-base** docker image, providing a simple GUI stack.  
 
