@@ -1,4 +1,4 @@
-## ewsdocker/debian-base-gui  
+## ewsdocker/debian-base-gui:9.5.2  
 
 **ewsdocker/debian-base-gui** is built on the **ewsdocker/debian-base** docker image, providing a simple GUI stack.  
 
@@ -25,16 +25,16 @@ The following scripts will download the the selected **ewsdocker/debian-base** i
 
 The <i>default</i> values will install all directories and contents in the <b>docker host</b> user's home directory (refer to <a href="#mapping">Mapping docker host resources to the docker container</a>, below).  
 
-**ewsdocker/debian-base:9.5.1**
+**ewsdocker/debian-base:9.5.2**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-9.5.1:/root \
-               --name=debian-base-9.5.1 \
-           ewsdocker/debian-base:9.5.1 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-9.5.2:/root \
+               --name=debian-base-9.5.2 \
+           ewsdocker/debian-base:9.5.2 lms-setup  
 
 ____  
 
@@ -48,9 +48,9 @@ After running the above command script, and using the settings indicated, the do
 
 ____  
 
-**Executable scripts**  
+**Execution scripts**  
 
-**ewsdocker/debian-base:9.5.1**  
+**ewsdocker/debian-base:9.5.2**  
   
     docker run -it \
                --rm \
@@ -59,10 +59,10 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.5.1:/workspace \
-               -v ${HOME}/.config/docker/debian-base-9.5.1:/root \
-               --name=debian-base-9.5.1 \
-           ewsdocker/debian-base:9.5.1 /bin/bash
+               -v ${HOME}/workspace-base-9.5.2:/workspace \
+               -v ${HOME}/.config/docker/debian-base-9.5.2:/root \
+               --name=debian-base-9.5.2 \
+           ewsdocker/debian-base:9.5.2 /bin/bash
 
 ____  
 
@@ -71,10 +71,10 @@ ____
 
 **Test 1**  
 
-Copy the docker command above (*Creating a container*) and paste it into a docker host command line to create a temporary docker container named **debian-base-9.5.1**.  At the *bash* prompt (**#**), enter the following command:  
+Copy the docker command above (*Creating a container*) and paste it into a docker host command line to create a temporary docker container named **debian-base-9.5.2**.  At the *bash* prompt (**#**), enter the following command:  
 
-    apt-get update
-    apt-get install mousepad  
+    apt-get -y update
+    apt-get -y install mousepad  
     /usr/bin/mousepad  
 
 A graphical dialog should appear containing the *mousepad* editor main window.  Exit the *mousepad* program, then exit the container (*exit* 2 times).  
