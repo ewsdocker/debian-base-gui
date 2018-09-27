@@ -1,10 +1,12 @@
-## ewsdocker/debian-base-gui:9.5.2  
+## ewsdocker/debian-base-gui:9.5.3  
 
 **ewsdocker/debian-base-gui** is built on the **ewsdocker/debian-base** docker image, providing a simple GUI stack.  
 
+Now with support branches for **GTK-2** and **GTK-3** versions.
+
 ____  
 
-A pre-made docker image of **ewsdocker/debian-base-gui** is available from [ewsdocker/debian-base-gui](https://hub.docker.com/r/ewsdocker/debian-base-gui/) at [Docker Hub](https://hub.docker.com).  
+Pre-made docker images of **ewsdocker/debian-base-gui** is available from [ewsdocker/debian-base-gui](https://hub.docker.com/r/ewsdocker/debian-base-gui/) at [Docker Hub](https://hub.docker.com).  
 ______  
 
 
@@ -25,16 +27,42 @@ The following scripts will download the the selected **ewsdocker/debian-base** i
 
 The <i>default</i> values will install all directories and contents in the <b>docker host</b> user's home directory (refer to <a href="#mapping">Mapping docker host resources to the docker container</a>, below).  
 
-**ewsdocker/debian-base:9.5.2**
+**ewsdocker/debian-base:9.5.3**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-9.5.2:/root \
-               --name=debian-base-9.5.2 \
-           ewsdocker/debian-base:9.5.2 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-9.5.3:/root \
+               --name=debian-base-9.5.3 \
+           ewsdocker/debian-base:9.5.3 lms-setup  
+
+____  
+
+**ewsdocker/debian-base:9.5.3-gtk2**
+  
+    docker run --rm \
+               -v ${HOME}/bin:/userbin \
+               -v ${HOME}/.local:/usrlocal \
+               -e LMS_BASE="${HOME}/.local" \
+               -v ${HOME}/.config/docker:/conf \
+               -v ${HOME}/.config/docker/debian-base-9.5.3-gtk2:/root \
+               --name=debian-base-9.5.3-gtk2 \
+           ewsdocker/debian-base:9.5.3-gtk2 lms-setup  
+
+____  
+
+**ewsdocker/debian-base:9.5.3-gtk3**
+  
+    docker run --rm \
+               -v ${HOME}/bin:/userbin \
+               -v ${HOME}/.local:/usrlocal \
+               -e LMS_BASE="${HOME}/.local" \
+               -v ${HOME}/.config/docker:/conf \
+               -v ${HOME}/.config/docker/debian-base-9.5.3-gtk3:/root \
+               --name=debian-base-9.5.3-gtk3 \
+           ewsdocker/debian-base:9.5.3-gtk3 lms-setup  
 
 ____  
 
@@ -50,7 +78,7 @@ ____
 
 **Execution scripts**  
 
-**ewsdocker/debian-base:9.5.2**  
+**ewsdocker/debian-base:9.5.3**  
   
     docker run -it \
                --rm \
@@ -59,13 +87,44 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.5.2:/workspace \
-               -v ${HOME}/.config/docker/debian-base-9.5.2:/root \
-               --name=debian-base-9.5.2 \
-           ewsdocker/debian-base:9.5.2 /bin/bash
+               -v ${HOME}/workspace-base-9.5.3:/workspace \
+               -v ${HOME}/.config/docker/debian-base-9.5.3:/root \
+               --name=debian-base-9.5.3 \
+           ewsdocker/debian-base:9.5.3 /bin/bash
 
 ____  
 
+**ewsdocker/debian-base:9.5.3-gtk3**  
+  
+    docker run -it \
+               --rm \
+               -e DISPLAY=unix${DISPLAY} \
+               -v /tmp/.X11-unix:/tmp/.X11-unix \
+               -v /tmp/.docker.xauth:/tmp/.docker.xauth \
+               -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
+               -v /etc/localtime:/etc/localtime:ro \
+               -v ${HOME}/workspace-base-9.5.3-gtk3:/workspace \
+               -v ${HOME}/.config/docker/debian-base-9.5.3-gtk3:/root \
+               --name=debian-base-9.5.3-gtk3 \
+           ewsdocker/debian-base:9.5.3-gtk3 /bin/bash
+
+____  
+
+**ewsdocker/debian-base:9.5.3-gtk2**  
+  
+    docker run -it \
+               --rm \
+               -e DISPLAY=unix${DISPLAY} \
+               -v /tmp/.X11-unix:/tmp/.X11-unix \
+               -v /tmp/.docker.xauth:/tmp/.docker.xauth \
+               -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
+               -v /etc/localtime:/etc/localtime:ro \
+               -v ${HOME}/workspace-base-9.5.3-gtk2:/workspace \
+               -v ${HOME}/.config/docker/debian-base-9.5.3-gtk2:/root \
+               --name=debian-base-9.5.3-gtk2 \
+           ewsdocker/debian-base:9.5.3-gtk2 /bin/bash
+
+____  
 
 **Simple tests**  
 
