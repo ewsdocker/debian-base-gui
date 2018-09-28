@@ -37,7 +37,7 @@
 #
 # =========================================================================
 # =========================================================================
-FROM ewsdocker/debian-base:9.5.2
+FROM ewsdocker/debian-base:9.5.3
 MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -50,7 +50,7 @@ ENV LMSBUILD_REPO=ewsdocker
 ENV LMSBUILD_REGISTRY=""
 
 ENV LMSBUILD_DOCKER="${LMSBUILD_REPO}/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
-ENV LMSBUILD_PACKAGE="debian-base:9.5.2"
+ENV LMSBUILD_PACKAGE="debian-base:9.5.3"
 
 # =========================================================================
 
