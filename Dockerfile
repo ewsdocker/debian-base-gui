@@ -65,6 +65,9 @@ RUN apt-get -y update \
             fonts-opensymbol \
             hicolor-icon-theme \
             libglib2.0 \
+            libgtk2.0-0 \
+            libgtk2.0-bin \
+            libgtk2.0-common \
 	        libx11-xcb-dev \
 	        libx11-xcb1 \
 	        libxrender1 \
