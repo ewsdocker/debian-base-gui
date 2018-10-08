@@ -1,4 +1,4 @@
-## ewsdocker/debian-base-gui:9.5.3  
+## ewsdocker/debian-base-gui:9.5.4  
 
 **ewsdocker/debian-base-gui** is built on the **ewsdocker/debian-base** docker image, providing a simple GUI stack.  
 
@@ -27,42 +27,42 @@ The following scripts will download the the selected **ewsdocker/debian-base** i
 
 The <i>default</i> values will install all directories and contents in the <b>docker host</b> user's home directory (refer to <a href="#mapping">Mapping docker host resources to the docker container</a>, below).  
 
-**ewsdocker/debian-base-gui:9.5.3**
+**ewsdocker/debian-base-gui:9.5.4**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.3:/root \
-               --name=debian-base-gui-9.5.3 \
-           ewsdocker/debian-base-gui:9.5.3 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-gui-9.5.4:/root \
+               --name=debian-base-gui-9.5.4 \
+           ewsdocker/debian-base-gui:9.5.4 lms-setup  
 
 ____  
 
-**ewsdocker/debian-base-gui:9.5.3-gtk2**
+**ewsdocker/debian-base-gui:9.5.4-gtk2**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.3-gtk2:/root \
-               --name=debian-base-gui-9.5.3-gtk2 \
-           ewsdocker/debian-base-gui:9.5.3-gtk2 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-gui-9.5.4-gtk2:/root \
+               --name=debian-base-gui-9.5.4-gtk2 \
+           ewsdocker/debian-base-gui:9.5.4-gtk2 lms-setup  
 
 ____  
 
-**ewsdocker/debian-base-gui:9.5.3-gtk3**
+**ewsdocker/debian-base-gui:9.5.4-gtk3**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.3-gtk3:/root \
-               --name=debian-base-gui-9.5.3-gtk3 \
-           ewsdocker/debian-base-gui:9.5.3-gtk3 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-gui-9.5.4-gtk3:/root \
+               --name=debian-base-gui-9.5.4-gtk3 \
+           ewsdocker/debian-base-gui:9.5.4-gtk3 lms-setup  
 
 ____  
 
@@ -78,7 +78,7 @@ ____
 
 **Execution scripts**  
 
-**ewsdocker/debian-base-gui:9.5.3**  
+**ewsdocker/debian-base-gui:9.5.4**  
   
     docker run -it \
                --rm \
@@ -87,14 +87,14 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.5.3:/workspace \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.3:/root \
-               --name=debian-base-gui-9.5.3 \
-           ewsdocker/debian-base-gui:9.5.3 /bin/bash
+               -v ${HOME}/workspace-base-9.5.4:/workspace \
+               -v ${HOME}/.config/docker/debian-base-gui-9.5.4:/root \
+               --name=debian-base-gui-9.5.4 \
+           ewsdocker/debian-base-gui:9.5.4 /bin/bash
 
 ____  
 
-**ewsdocker/debian-base-gui:9.5.3-gtk3**  
+**ewsdocker/debian-base-gui:9.5.4-gtk3**  
   
     docker run -it \
                --rm \
@@ -103,14 +103,14 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.5.3-gtk3:/workspace \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.3-gtk3:/root \
-               --name=debian-base-gui-9.5.3-gtk3 \
-           ewsdocker/debian-base-gui:9.5.3-gtk3 /bin/bash
+               -v ${HOME}/workspace-base-9.5.4-gtk3:/workspace \
+               -v ${HOME}/.config/docker/debian-base-gui-9.5.4-gtk3:/root \
+               --name=debian-base-gui-9.5.4-gtk3 \
+           ewsdocker/debian-base-gui:9.5.4-gtk3 /bin/bash
 
 ____  
 
-**ewsdocker/debian-base-gui:9.5.3-gtk2**  
+**ewsdocker/debian-base-gui:9.5.4-gtk2**  
   
     docker run -it \
                --rm \
@@ -119,10 +119,10 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.5.3-gtk2:/workspace \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.3-gtk2:/root \
-               --name=debian-base-gui-9.5.3-gtk2 \
-           ewsdocker/debian-base-gui:9.5.3-gtk2 /bin/bash
+               -v ${HOME}/workspace-base-9.5.4-gtk2:/workspace \
+               -v ${HOME}/.config/docker/debian-base-gui-9.5.4-gtk2:/root \
+               --name=debian-base-gui-9.5.4-gtk2 \
+           ewsdocker/debian-base-gui:9.5.4-gtk2 /bin/bash
 
 ____  
 
@@ -130,7 +130,7 @@ ____
 
 **Test 1**  
 
-Copy the docker command above (*Creating a container*) and paste it into a docker host command line to create a temporary docker container named **debian-base-gui-9.5.3**.  At the *bash* prompt (**#**), enter the following command:  
+Copy the docker command above (*Creating a container*) and paste it into a docker host command line to create a temporary docker container named **debian-base-gui-9.5.4**.  At the *bash* prompt (**#**), enter the following command:  
 
     apt-get -y update
     apt-get -y install mousepad  
