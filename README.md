@@ -2,13 +2,26 @@
 
 **ewsdocker/debian-base-gui** is built on the **ewsdocker/debian-base** docker image, providing a simple GUI stack.  
 
-Now with support branches for **GTK-2** and **GTK-3** versions.
+Now with support branches for **GTK-3** and **GTK-2** versions.
+
+**ewsdocker/debian-base-gui:9.5.5**  
+- basic debian-base-gui without _gtk_/_qt_ support  
+
+**ewsdocker/debian-base-gui:9.5.5-gtk3**  
+- with _gtk3_ support  
+
+**ewsdocker/debian-base-gui:9.5.5-gtk2**  
+- with _gtk2_ support  
+
+____  
+
+### What's new or changed in this version?  
+Version notes are available on the [ewsdocker wiki](https://github.com/ewsdocker/ewsdocker.github.io/wiki) at [notes-debian-eclipse-php](https://github.com/ewsdocker/ewsdocker.github.io/wiki/notes-debian-eclipse-php).  
 
 ____  
 
 Pre-made docker images of **ewsdocker/debian-base-gui** is available from [ewsdocker/debian-base-gui](https://hub.docker.com/r/ewsdocker/debian-base-gui/) at [Docker Hub](https://hub.docker.com).  
 ______  
-
 
 **Visit our [ewsdocker/debian-base-gui Wiki](https://github.com/ewsdocker/debian-base-gui/wiki) for complete documentation of this docker image.**  
 
@@ -19,10 +32,7 @@ ____
 **ewsdocker/debian-base-gui** is designed to be used on a Linux system configured to support **Docker** _user namespaces_.  Refer to [ewsdocker Containers and Docker User Namespaces](https://github.com/ewsdocker/ewsdocker.github.io/wiki/UserNS-Overview) for an overview and additional information.  
 
 ______  
-
-
-**Installing ewsdocker/debian-base**  
-
+#### Installing ewsdocker/debian-base  
 The following scripts will download the the selected **ewsdocker/debian-base** image, create a container, setup and populate the directory structures, create the run-time scripts, and install the application's desktop file(s).  
 
 The <i>default</i> values will install all directories and contents in the <b>docker host</b> user's home directory (refer to <a href="#mapping">Mapping docker host resources to the docker container</a>, below).  
@@ -40,19 +50,6 @@ The <i>default</i> values will install all directories and contents in the <b>do
 
 ____  
 
-**ewsdocker/debian-base-gui:9.5.5-gtk2**
-  
-    docker run --rm \
-               -v ${HOME}/bin:/userbin \
-               -v ${HOME}/.local:/usrlocal \
-               -e LMS_BASE="${HOME}/.local" \
-               -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.5-gtk2:/root \
-               --name=debian-base-gui-9.5.5-gtk2 \
-           ewsdocker/debian-base-gui:9.5.5-gtk2 lms-setup  
-
-____  
-
 **ewsdocker/debian-base-gui:9.5.5-gtk3**
   
     docker run --rm \
@@ -66,8 +63,19 @@ ____
 
 ____  
 
-**Running the installed scripts**
+**ewsdocker/debian-base-gui:9.5.5-gtk2**
+  
+    docker run --rm \
+               -v ${HOME}/bin:/userbin \
+               -v ${HOME}/.local:/usrlocal \
+               -e LMS_BASE="${HOME}/.local" \
+               -v ${HOME}/.config/docker:/conf \
+               -v ${HOME}/.config/docker/debian-base-gui-9.5.5-gtk2:/root \
+               --name=debian-base-gui-9.5.5-gtk2 \
+           ewsdocker/debian-base-gui:9.5.5-gtk2 lms-setup  
 
+____  
+### Running the installed scripts
 After running the above command script, and using the settings indicated, the docker host directories, mapped as shown in the above tables, will be configured as follows:
 
  - the executable scripts have been copied to **~/bin**;  
@@ -75,9 +83,7 @@ After running the above command script, and using the settings indicated, the do
  - the associated **debian-base-gui-"version"** executable script (shown below) will be found in **~/.local/bin**, and _should_ be customized with proper local volume names;  
 
 ____  
-
-**Execution scripts**  
-
+#### Execution scripts  
 **ewsdocker/debian-base-gui:9.5.5**  
   
     docker run -it \
@@ -125,9 +131,7 @@ ____
            ewsdocker/debian-base-gui:9.5.5-gtk2 /bin/bash
 
 ____  
-
-**Simple tests**  
-
+### Simple tests  
 **Test 1**  
 
 Copy the docker command above (*Creating a container*) and paste it into a docker host command line to create a temporary docker container named **debian-base-gui-9.5.5**.  At the *bash* prompt (**#**), enter the following command:  
@@ -147,7 +151,6 @@ Add a new volume to the command above, mapping a local folder container text doc
 Perform the steps in *Test 1* to open the mousepad application.  Using the mousepad file manager, browse to the new folder (*/documents*) and open a text document there.  
 
 ____  
-
 
 **Copyright © 2018. EarthWalk Software.**  
 **Licensed under the GNU General Public License, GPL-3.0-or-later.**  
