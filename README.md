@@ -1,5 +1,4 @@
 ## ewsdocker/debian-base-gui:9.5.6  
-
 **ewsdocker/debian-base-gui** is built on the **ewsdocker/debian-base** docker image, providing a simple GUI stack.  
 
 Now with support branches for **GTK-3** and **GTK-2** versions.
