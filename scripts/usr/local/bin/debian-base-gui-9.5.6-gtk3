@@ -2,14 +2,14 @@
 # =========================================================================
 # =========================================================================
 #
-#	debian-base-gui-9.5.5-gtk3
+#	debian-base-gui-9.5.6-gtk3
 #	  docker run command for debian-base-gui
 #		in a Debian 9 docker image.
 #
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 9.5.5-gtk3
+# @version 9.5.6-gtk3
 # @copyright © 2018. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package debian-base-gui
@@ -44,6 +44,6 @@ docker run --rm \
            -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
            -v /etc/localtime:/etc/localtime:ro \
            -v ${HOME}:/user \
-           -v ${HOME}/.config/docker/debian-base-gui-9.5.5-gtk3:/root \
-           --name=debian-base-gui-9.5.5-gtk3 \
-       ewsdocker/debian-base-gui:9.5.5-gtk3
+           -v ${HOME}/.config/docker/debian-base-gui-9.5.6-gtk3:/root \
+           --name=debian-base-gui-9.5.6-gtk3 \
+       ewsdocker/debian-base-gui:9.5.6-gtk3
