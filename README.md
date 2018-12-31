@@ -1,15 +1,16 @@
-## ewsdocker/debian-base-gui:9.5.7  
+## ewsdocker/debian-base-gui:9.6.0  
+
 **ewsdocker/debian-base-gui** is built on the **ewsdocker/debian-base** docker image, providing a simple GUI stack.  
 
 Now with support branches for **GTK-3** and **GTK-2** versions.
 
-**ewsdocker/debian-base-gui:9.5.7**  
+**ewsdocker/debian-base-gui:9.6.0**  
 - basic debian-base-gui without _gtk_/_qt_ support  
 
-**ewsdocker/debian-base-gui:9.5.7-gtk3**  
+**ewsdocker/debian-base-gui:9.6.0-gtk3**  
 - with _gtk3_ support  
 
-**ewsdocker/debian-base-gui:9.5.7-gtk2**  
+**ewsdocker/debian-base-gui:9.6.0-gtk2**  
 - with _gtk2_ support  
 
 ____  
@@ -36,42 +37,42 @@ The following scripts will download the the selected **ewsdocker/debian-base** i
 
 The <i>default</i> values will install all directories and contents in the <b>docker host</b> user's home directory (refer to <a href="#mapping">Mapping docker host resources to the docker container</a>, below).  
 
-**ewsdocker/debian-base-gui:9.5.7**
+**ewsdocker/debian-base-gui:9.6.0**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.7:/root \
-               --name=debian-base-gui-9.5.7 \
-           ewsdocker/debian-base-gui:9.5.7 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.0:/root \
+               --name=debian-base-gui-9.6.0 \
+           ewsdocker/debian-base-gui:9.6.0 lms-setup  
 
 ____  
 
-**ewsdocker/debian-base-gui:9.5.7-gtk3**
+**ewsdocker/debian-base-gui:9.6.0-gtk3**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.7-gtk3:/root \
-               --name=debian-base-gui-9.5.7-gtk3 \
-           ewsdocker/debian-base-gui:9.5.7-gtk3 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.0-gtk3:/root \
+               --name=debian-base-gui-9.6.0-gtk3 \
+           ewsdocker/debian-base-gui:9.6.0-gtk3 lms-setup  
 
 ____  
 
-**ewsdocker/debian-base-gui:9.5.7-gtk2**
+**ewsdocker/debian-base-gui:9.6.0-gtk2**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.7-gtk2:/root \
-               --name=debian-base-gui-9.5.7-gtk2 \
-           ewsdocker/debian-base-gui:9.5.7-gtk2 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.0-gtk2:/root \
+               --name=debian-base-gui-9.6.0-gtk2 \
+           ewsdocker/debian-base-gui:9.6.0-gtk2 lms-setup  
 
 ____  
 ### Running the installed scripts
@@ -83,7 +84,7 @@ After running the above command script, and using the settings indicated, the do
 
 ____  
 #### Execution scripts  
-**ewsdocker/debian-base-gui:9.5.7**  
+**ewsdocker/debian-base-gui:9.6.0**  
   
     docker run -it \
                --rm \
@@ -92,14 +93,14 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.5.7:/workspace \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.7:/root \
-               --name=debian-base-gui-9.5.7 \
-           ewsdocker/debian-base-gui:9.5.7 /bin/bash
+               -v ${HOME}/workspace-base-9.6.0:/workspace \
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.0:/root \
+               --name=debian-base-gui-9.6.0 \
+           ewsdocker/debian-base-gui:9.6.0 /bin/bash
 
 ____  
 
-**ewsdocker/debian-base-gui:9.5.7-gtk3**  
+**ewsdocker/debian-base-gui:9.6.0-gtk3**  
   
     docker run -it \
                --rm \
@@ -108,14 +109,14 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.5.7-gtk3:/workspace \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.7-gtk3:/root \
-               --name=debian-base-gui-9.5.7-gtk3 \
-           ewsdocker/debian-base-gui:9.5.7-gtk3 /bin/bash
+               -v ${HOME}/workspace-base-9.6.0-gtk3:/workspace \
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.0-gtk3:/root \
+               --name=debian-base-gui-9.6.0-gtk3 \
+           ewsdocker/debian-base-gui:9.6.0-gtk3 /bin/bash
 
 ____  
 
-**ewsdocker/debian-base-gui:9.5.7-gtk2**  
+**ewsdocker/debian-base-gui:9.6.0-gtk2**  
   
     docker run -it \
                --rm \
@@ -124,16 +125,16 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.5.7-gtk2:/workspace \
-               -v ${HOME}/.config/docker/debian-base-gui-9.5.7-gtk2:/root \
-               --name=debian-base-gui-9.5.7-gtk2 \
-           ewsdocker/debian-base-gui:9.5.7-gtk2 /bin/bash
+               -v ${HOME}/workspace-base-9.6.0-gtk2:/workspace \
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.0-gtk2:/root \
+               --name=debian-base-gui-9.6.0-gtk2 \
+           ewsdocker/debian-base-gui:9.6.0-gtk2 /bin/bash
 
 ____  
 ### Simple tests  
 **Test 1**  
 
-Copy the docker command above (*Creating a container*) and paste it into a docker host command line to create a temporary docker container named **debian-base-gui-9.5.7**.  At the *bash* prompt (**#**), enter the following command:  
+Copy the docker command above (*Creating a container*) and paste it into a docker host command line to create a temporary docker container named **debian-base-gui-9.6.0**.  At the *bash* prompt (**#**), enter the following command:  
 
     apt-get -y update
     apt-get -y install mousepad  
