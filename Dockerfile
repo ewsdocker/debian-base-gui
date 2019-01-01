@@ -71,6 +71,7 @@ RUN apt-get -y update \
             libxt6 \
             xauth \
             xz-utils \
+ && apt-get clean all \
  && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt  
 
 # =========================================================================
