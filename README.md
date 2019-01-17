@@ -1,25 +1,27 @@
-## ewsdocker/debian-base-gui:9.6.1  
+## ewsdocker/debian-base-gui:9.6.2  
 
 **ewsdocker/debian-base-gui** is built on the **ewsdocker/debian-base** docker image, providing a simple GUI stack.  
 
 Now with support branches for **GTK-3** and **GTK-2** versions.
 
-**ewsdocker/debian-base-gui:9.6.1**  
+**ewsdocker/debian-base-gui:9.6.2**  
 - basic debian-base-gui without _gtk_/_qt_ support  
 
-**ewsdocker/debian-base-gui:9.6.1-gtk3**  
+**ewsdocker/debian-base-gui:9.6.2-gtk3**  
 - with _gtk3_ support  
 
-**ewsdocker/debian-base-gui:9.6.1-gtk2**  
+**ewsdocker/debian-base-gui:9.6.2-gtk2**  
 - with _gtk2_ support  
 
 ____  
+#### GitHub Current Source is EDGE
+The _9.6.2_ version is now under development. It will show itself as _EDGE_ in [Docker Tags](https://hub.docker.com/r/ewsdocker/debian-base/tags/).  The _9.6.2_ and _EDGE_ tags are development versions of GitHub source and debian-base Docker image, respectively.  
 
-### What's new or changed in this version?  
-Version notes are available on the [ewsdocker wiki](https://github.com/ewsdocker/ewsdocker.github.io/wiki) at [notes-debian-eclipse-php](https://github.com/ewsdocker/ewsdocker.github.io/wiki/notes-debian-eclipse-php).  
+The _9.6.1_ source version (also the current [Docker Tag](https://hub.docker.com/r/ewsdocker/debian-base/tags/) version) is available from the [GitHub Tags](https://github.com/ewsdocker/debian-base/tree/9.6.1) release tree in the _Branch_/_Tags_ selector box.
+
+Documentation for the _9.6.1_ release is still available on the [debian-base wiki](https://github.com/ewsdocker/debian-base/wiki).  
 
 ____  
-
 Pre-made docker images of **ewsdocker/debian-base-gui** is available from [ewsdocker/debian-base-gui](https://hub.docker.com/r/ewsdocker/debian-base-gui/) at [Docker Hub](https://hub.docker.com).  
 ______  
 
@@ -37,42 +39,42 @@ The following scripts will download the the selected **ewsdocker/debian-base** i
 
 The <i>default</i> values will install all directories and contents in the <b>docker host</b> user's home directory (refer to <a href="#mapping">Mapping docker host resources to the docker container</a>, below).  
 
-**ewsdocker/debian-base-gui:9.6.1**
+**ewsdocker/debian-base-gui:9.6.2**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-gui-9.6.1:/root \
-               --name=debian-base-gui-9.6.1 \
-           ewsdocker/debian-base-gui:9.6.1 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.2:/root \
+               --name=debian-base-gui-9.6.2 \
+           ewsdocker/debian-base-gui:9.6.2 lms-setup  
 
 ____  
 
-**ewsdocker/debian-base-gui:9.6.1-gtk3**
+**ewsdocker/debian-base-gui:9.6.2-gtk3**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-gui-9.6.1-gtk3:/root \
-               --name=debian-base-gui-9.6.1-gtk3 \
-           ewsdocker/debian-base-gui:9.6.1-gtk3 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.2-gtk3:/root \
+               --name=debian-base-gui-9.6.2-gtk3 \
+           ewsdocker/debian-base-gui:9.6.2-gtk3 lms-setup  
 
 ____  
 
-**ewsdocker/debian-base-gui:9.6.1-gtk2**
+**ewsdocker/debian-base-gui:9.6.2-gtk2**
   
     docker run --rm \
                -v ${HOME}/bin:/userbin \
                -v ${HOME}/.local:/usrlocal \
                -e LMS_BASE="${HOME}/.local" \
                -v ${HOME}/.config/docker:/conf \
-               -v ${HOME}/.config/docker/debian-base-gui-9.6.1-gtk2:/root \
-               --name=debian-base-gui-9.6.1-gtk2 \
-           ewsdocker/debian-base-gui:9.6.1-gtk2 lms-setup  
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.2-gtk2:/root \
+               --name=debian-base-gui-9.6.2-gtk2 \
+           ewsdocker/debian-base-gui:9.6.2-gtk2 lms-setup  
 
 ____  
 ### Running the installed scripts
@@ -84,7 +86,7 @@ After running the above command script, and using the settings indicated, the do
 
 ____  
 #### Execution scripts  
-**ewsdocker/debian-base-gui:9.6.1**  
+**ewsdocker/debian-base-gui:9.6.2**  
   
     docker run -it \
                --rm \
@@ -93,14 +95,14 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.6.1:/workspace \
-               -v ${HOME}/.config/docker/debian-base-gui-9.6.1:/root \
-               --name=debian-base-gui-9.6.1 \
-           ewsdocker/debian-base-gui:9.6.1 /bin/bash
+               -v ${HOME}/workspace-base-9.6.2:/workspace \
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.2:/root \
+               --name=debian-base-gui-9.6.2 \
+           ewsdocker/debian-base-gui:9.6.2 /bin/bash
 
 ____  
 
-**ewsdocker/debian-base-gui:9.6.1-gtk3**  
+**ewsdocker/debian-base-gui:9.6.2-gtk3**  
   
     docker run -it \
                --rm \
@@ -109,14 +111,14 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.6.1-gtk3:/workspace \
-               -v ${HOME}/.config/docker/debian-base-gui-9.6.1-gtk3:/root \
-               --name=debian-base-gui-9.6.1-gtk3 \
-           ewsdocker/debian-base-gui:9.6.1-gtk3 /bin/bash
+               -v ${HOME}/workspace-base-9.6.2-gtk3:/workspace \
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.2-gtk3:/root \
+               --name=debian-base-gui-9.6.2-gtk3 \
+           ewsdocker/debian-base-gui:9.6.2-gtk3 /bin/bash
 
 ____  
 
-**ewsdocker/debian-base-gui:9.6.1-gtk2**  
+**ewsdocker/debian-base-gui:9.6.2-gtk2**  
   
     docker run -it \
                --rm \
@@ -125,16 +127,16 @@ ____
                -v /tmp/.docker.xauth:/tmp/.docker.xauth \
                -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
                -v /etc/localtime:/etc/localtime:ro \
-               -v ${HOME}/workspace-base-9.6.1-gtk2:/workspace \
-               -v ${HOME}/.config/docker/debian-base-gui-9.6.1-gtk2:/root \
-               --name=debian-base-gui-9.6.1-gtk2 \
-           ewsdocker/debian-base-gui:9.6.1-gtk2 /bin/bash
+               -v ${HOME}/workspace-base-9.6.2-gtk2:/workspace \
+               -v ${HOME}/.config/docker/debian-base-gui-9.6.2-gtk2:/root \
+               --name=debian-base-gui-9.6.2-gtk2 \
+           ewsdocker/debian-base-gui:9.6.2-gtk2 /bin/bash
 
 ____  
 ### Simple tests  
 **Test 1**  
 
-Copy the docker command above (*Creating a container*) and paste it into a docker host command line to create a temporary docker container named **debian-base-gui-9.6.1**.  At the *bash* prompt (**#**), enter the following command:  
+Copy the docker command above (*Creating a container*) and paste it into a docker host command line to create a temporary docker container named **debian-base-gui-9.6.2**.  At the *bash* prompt (**#**), enter the following command:  
 
     apt-get -y update
     apt-get -y install mousepad  

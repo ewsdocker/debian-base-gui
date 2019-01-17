@@ -8,15 +8,15 @@
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 9.6.1-gtk3
-# @copyright © 2017, 2018. EarthWalk Software.
+# @version 9.6.2-gtk3
+# @copyright © 2017-2019. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ewsdocker/debian-base-gui
 # @subpackage Dockerfile
 #
 # =========================================================================
 #
-#	Copyright © 2017, 2018. EarthWalk Software
+#	Copyright © 2017-2019. EarthWalk Software
 #	Licensed under the GNU General Public License, GPL-3.0-or-later.
 #
 #   This file is part of ewsdocker/debian-base-gui.
@@ -37,7 +37,7 @@
 #
 # =========================================================================
 # =========================================================================
-FROM ewsdocker/debian-base:9.6.1
+FROM ewsdocker/debian-base:9.6.2
 
 MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
@@ -47,14 +47,14 @@ ENV DEBIAN_FRONTEND noninteractive
 #
 #	gtk3 build context
 #
-#		docker build -t ewsdocker/debian-base-gui:9.6.1-gtk3 gtk3
+#		docker build -t ewsdocker/debian-base-gui:9.6.2-gtk3 gtk3
 #     or
 #		cd gtk3
-#		docker build -t ewsdocker/debian-base-gui:9.6.1-gtk3 .
+#		docker build -t ewsdocker/debian-base-gui:9.6.2-gtk3 .
 #
 # =========================================================================
 
-ENV LMSBUILD_VERSION="9.6.1-gtk3"
+ENV LMSBUILD_VERSION="9.6.2-gtk3"
 ENV LMSBUILD_NAME=debian-base-gui 
 ENV LMSBUILD_REPO=ewsdocker
 ENV LMSBUILD_REGISTRY=""

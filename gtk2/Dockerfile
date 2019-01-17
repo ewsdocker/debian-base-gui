@@ -8,7 +8,7 @@
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 9.6.1-gtk2
+# @version 9.6.2-gtk2
 # @copyright © 2017-2019. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ewsdocker/debian-base-gui
@@ -37,7 +37,7 @@
 #
 # =========================================================================
 # =========================================================================
-FROM ewsdocker/debian-base:9.6.1
+FROM ewsdocker/debian-base:9.6.2
 MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -46,14 +46,14 @@ ENV DEBIAN_FRONTEND noninteractive
 #
 #	gtk2 build context
 #
-#		docker build -t ewsdocker/debian-base-gui:9.6.1-gtk2 gtk2
+#		docker build -t ewsdocker/debian-base-gui:9.6.2-gtk2 gtk2
 #     or
 #		cd gtk2
-#		docker build -t ewsdocker/debian-base-gui:9.6.1-gtk2
+#		docker build -t ewsdocker/debian-base-gui:9.6.2-gtk2
 #
 # =========================================================================
 
-ENV LMSBUILD_VERSION="9.6.1-gtk2"
+ENV LMSBUILD_VERSION="9.6.2-gtk2"
 ENV LMSBUILD_NAME=debian-base-gui 
 ENV LMSBUILD_REPO=ewsdocker
 ENV LMSBUILD_REGISTRY=""
