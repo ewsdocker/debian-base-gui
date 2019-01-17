@@ -2,7 +2,7 @@
 
 **ewsdocker/debian-base-gui** is built on the **ewsdocker/debian-base** docker image, providing a simple GUI stack.  
 
-Now with support branches for **GTK-3** and **GTK-2** versions.
+Now with support for **GTK-3** and **GTK-2** versions.
 
 **ewsdocker/debian-base-gui:9.6.2**  
 - basic debian-base-gui without _gtk_/_qt_ support  
@@ -15,11 +15,11 @@ Now with support branches for **GTK-3** and **GTK-2** versions.
 
 ____  
 #### GitHub Current Source is EDGE
-The _9.6.2_ version is now under development. It will show itself as _EDGE_ in [Docker Tags](https://hub.docker.com/r/ewsdocker/debian-base/tags/).  The _9.6.2_ and _EDGE_ tags are development versions of GitHub source and debian-base Docker image, respectively.  
+The _9.6.2_ version is now under development. It will show itself as _EDGE_ in [Docker Tags](https://hub.docker.com/r/ewsdocker/debian-base-gui/tags/).  The _9.6.2_ and _EDGE_ tags are development versions of GitHub source and debian-base-gui Docker image, respectively.  
 
-The _9.6.1_ source version (also the current [Docker Tag](https://hub.docker.com/r/ewsdocker/debian-base/tags/) version) is available from the [GitHub Tags](https://github.com/ewsdocker/debian-base/tree/9.6.1) release tree in the _Branch_/_Tags_ selector box.
+The _9.6.1_ source version (also the current [Docker Tag](https://hub.docker.com/r/ewsdocker/debian-base-gui/tags/) version) is available from the [GitHub Tags](https://github.com/ewsdocker/debian-base-gui/tree/9.6.1) release tree in the _Branch_/_Tags_ selector box.
 
-Documentation for the _9.6.1_ release is still available on the [debian-base wiki](https://github.com/ewsdocker/debian-base/wiki).  
+Documentation for the _9.6.1_ release is still available on the [debian-base-gui wiki](https://github.com/ewsdocker/debian-base-gui/wiki).  
 
 ____  
 Pre-made docker images of **ewsdocker/debian-base-gui** is available from [ewsdocker/debian-base-gui](https://hub.docker.com/r/ewsdocker/debian-base-gui/) at [Docker Hub](https://hub.docker.com).  
