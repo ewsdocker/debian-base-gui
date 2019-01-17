@@ -1,0 +1,48 @@
+#!/bin/bash
+# =========================================================================
+# =========================================================================
+#
+#	debian-base-gui-9.6.1-gtk3
+#	  docker run command for debian-base-gui
+#		in a Debian 9 docker image.
+#
+# =========================================================================
+#
+# @author Jay Wheeler.
+# @version 9.6.1-gtk3
+# @copyright © 2018. EarthWalk Software.
+# @license Licensed under the GNU General Public License, GPL-3.0-or-later.
+# @package debian-base-gui
+# @subpackage debian-base-gui.run
+#
+# =========================================================================
+#
+#	Copyright © 2018. EarthWalk Software
+#	Licensed under the GNU General Public License, GPL-3.0-or-later.
+#
+#   This file is part of ewsdocker/debian-base-gui.
+#
+#   ewsdocker/debian-base-gui is free software: you can redistribute 
+#   it and/or modify it under the terms of the GNU General Public License 
+#   as published by the Free Software Foundation, either version 3 of the 
+#   License, or (at your option) any later version.
+#
+#   ewsdocker/debian-base-gui is distributed in the hope that it will 
+#   be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+#   of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with ewsdocker/debian-base-gui.  If not, see 
+#   <http://www.gnu.org/licenses/>.
+#
+# =========================================================================
+docker run --rm \
+           -e DISPLAY=unix${DISPLAY} \
+           -v /tmp/.X11-unix:/tmp/.X11-unix \
+           -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
+           -v /etc/localtime:/etc/localtime:ro \
+           -v ${HOME}:/user \
+           -v ${HOME}/.config/docker/debian-base-gui-9.6.1-gtk3:/root \
+           --name=debian-base-gui-9.6.1-gtk3 \
+       ewsdocker/debian-base-gui:9.6.1-gtk3

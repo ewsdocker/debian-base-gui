@@ -2,21 +2,21 @@
 # =========================================================================
 #
 #	Dockerfile
-#	  Dockerfile for debian-base-gui (docker gui utilities) 
+#	  Dockerfile for debian-base-gui-gtk3 (docker gui utilities) 
 #		in a Debian docker container.
 #
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 9.6.1
-# @copyright © 2017-2019. EarthWalk Software.
+# @version 9.6.1-gtk3
+# @copyright © 2017, 2018. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ewsdocker/debian-base-gui
 # @subpackage Dockerfile
 #
 # =========================================================================
 #
-#	Copyright © 2017-2019. EarthWalk Software
+#	Copyright © 2017, 2018. EarthWalk Software
 #	Licensed under the GNU General Public License, GPL-3.0-or-later.
 #
 #   This file is part of ewsdocker/debian-base-gui.
@@ -38,22 +38,23 @@
 # =========================================================================
 # =========================================================================
 FROM ewsdocker/debian-base:9.6.1
+
 MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # =========================================================================
 #
-#	master build context
+#	gtk3 build context
 #
-#		docker build -t ewsdocker/debian-base-gui:9.6.1 master
+#		docker build -t ewsdocker/debian-base-gui:9.6.1-gtk3 gtk3
 #     or
-#		cd master
-#		docker build -t ewsdocker/debian-base-gui:9.6.1
+#		cd gtk3
+#		docker build -t ewsdocker/debian-base-gui:9.6.1-gtk3 .
 #
 # =========================================================================
 
-ENV LMSBUILD_VERSION="9.6.1"
+ENV LMSBUILD_VERSION="9.6.1-gtk3"
 ENV LMSBUILD_NAME=debian-base-gui 
 ENV LMSBUILD_REPO=ewsdocker
 ENV LMSBUILD_REGISTRY=""
@@ -74,6 +75,9 @@ RUN apt-get -y update \
             fonts-opensymbol \
             hicolor-icon-theme \
             libglib2.0 \
+			libgtk-3-0 \
+            libgtk-3-bin \
+            libgtk-3-common \ 
 	        libx11-xcb-dev \
 	        libx11-xcb1 \
 	        libxrender1 \
@@ -81,7 +85,7 @@ RUN apt-get -y update \
             xauth \
             xz-utils \
  && apt-get clean all \
-  \
+ \
  #
  # register the build with /etc/ewsdocker-builds.txt
  #

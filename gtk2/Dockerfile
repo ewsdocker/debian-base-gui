@@ -8,7 +8,7 @@
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 9.6.1
+# @version 9.6.1-gtk2
 # @copyright © 2017-2019. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ewsdocker/debian-base-gui
@@ -44,16 +44,16 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # =========================================================================
 #
-#	master build context
+#	gtk2 build context
 #
-#		docker build -t ewsdocker/debian-base-gui:9.6.1 master
+#		docker build -t ewsdocker/debian-base-gui:9.6.1-gtk2 gtk2
 #     or
-#		cd master
-#		docker build -t ewsdocker/debian-base-gui:9.6.1
+#		cd gtk2
+#		docker build -t ewsdocker/debian-base-gui:9.6.1-gtk2
 #
 # =========================================================================
 
-ENV LMSBUILD_VERSION="9.6.1"
+ENV LMSBUILD_VERSION="9.6.1-gtk2"
 ENV LMSBUILD_NAME=debian-base-gui 
 ENV LMSBUILD_REPO=ewsdocker
 ENV LMSBUILD_REGISTRY=""
@@ -74,6 +74,9 @@ RUN apt-get -y update \
             fonts-opensymbol \
             hicolor-icon-theme \
             libglib2.0 \
+            libgtk2.0-0 \
+            libgtk2.0-bin \
+            libgtk2.0-common \
 	        libx11-xcb-dev \
 	        libx11-xcb1 \
 	        libxrender1 \
@@ -81,10 +84,6 @@ RUN apt-get -y update \
             xauth \
             xz-utils \
  && apt-get clean all \
-  \
- #
- # register the build with /etc/ewsdocker-builds.txt
- #
  && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt  
 
 # =========================================================================
