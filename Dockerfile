@@ -42,8 +42,8 @@ ARG ARG_VERS_EXT=
 ARG ARG_BASE_VERS="9.6.1"
 
 FROM ewsdocker/debian-base:${ARG_BASE_VERS}
-MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
+MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 # =========================================================================
@@ -154,20 +154,29 @@ RUN \
             xauth \
             xz-utils \
  #
+ # =========================================================================
  #
+ #    Install gtk2, if requested
+ #
+ # =========================================================================
  #
  && if test "${ARG_VERS_EXT}" = "-gtk2" ; then apt-get -y install libgtk2.0-0 libgtk2.0-bin libgtk2.0-common; fi \ 
  #
+ # =========================================================================
  #
+ #   or gtk3, if requested
+ #
+ # =========================================================================
  #
  && if test "${ARG_VERS_EXT}" = "-gtk3" ; then apt-get -y install libgtk-3-0 libgtk-3-bin libgtk-3-common; fi \ 
  #
+ # =========================================================================
  #
+ #    clean up apt repo
+ #
+ # =========================================================================
  #
  && apt-get clean all \
- #
- # register the build with /etc/ewsdocker-builds.txt
- #
  #
  # =========================================================================
  #
@@ -203,6 +212,13 @@ RUN \
  # =========================================================================
  #
  && chmod +x /usr/bin/lms/* \
+ #
+ # =========================================================================
+ #
+ #   register the build with /etc/ewsdocker-builds.txt
+ #
+ # =========================================================================
+ #
  && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt 
 
 # =========================================================================
