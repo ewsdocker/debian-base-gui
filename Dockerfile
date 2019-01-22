@@ -8,7 +8,7 @@
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 9.6.2
+# @version 9.6.3
 # @copyright © 2017-2019. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ewsdocker/debian-base-gui
@@ -37,30 +37,107 @@
 #
 # =========================================================================
 # =========================================================================
-FROM ewsdocker/debian-base:9.6.2
+
+ARG ARG_VERS_EXT=
+ARG ARG_BASE_VERS="9.6.1"
+
+FROM ewsdocker/debian-base:${ARG_BASE_VERS}
 MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # =========================================================================
 #
-#	master build context
+#    Docker Build Arguments
 #
-#		docker build -t ewsdocker/debian-base-gui:9.6.2 .
+# =========================================================================
+#
+#   ARG_SOURCE    <= url of the local source (http://alpine-nginx-pkgcache), 
+#                      otherwise external source.
+#
+#   ARG_VERSION   <= version of debian-base-gui (9.6.3)
+#
+#   ARG_VERS_EXT  <= version of debian-base-gui  to build 
+#					   empty ==> master version (9.6.3),
+#					   -gtk2 ==> GTK-2  version (9.6.3-gtk2)
+#                      -gtk3 ==> GTK-3  version (9.6.3-gtk3)
+#
+#   ARG_BASE_VERS <= debian-base version (9.6.1)
+#
+#   =======================================================================
+#
+#   For example, build debian-base-gui gtk3 version of the current release
+#        from the local repo:
+#
+#     cd to the directory containing debian-base-gui Dockerfile
+#
+#     docker build -t ewsdocker/debian-base-gui:9.6.3-gtk3 \
+#      --network=pkgnet \
+#      --build-arg ARG_VERS_EXT="-gtk3" \
+#      --build-arg ARG_VERSION="9.6.3" \
+#      --build-arg ARG_SOURCE=http://alpine-nginx-pkgcache .
+#
+#   =======================================================================
+#
+#   For example, build the standard debian-base-gui (master) version 
+#        of the current release from the GitHub repo:
+#
+#     cd to the directory containing debian-base-gui Dockerfile
+#
+#     docker build -t ewsdocker/debian-base-gui:9.6.3 .
 #
 # =========================================================================
 
-ENV LMSBUILD_VERSION="9.6.2"
+ARG ARG_SOURCE
+
+ARG ARG_VERSION
+ARG ARG_VERS_EXT
+
+ARG ARG_BASE_VERS
+
+# =========================================================================
+#
+#   setup LMSBUILD environment
+#
+# =========================================================================
+
+ENV LMSBUILD_VERSION=${ARG_VERSION:-"9.6.3"}${ARG_VERS_EXT}
 ENV LMSBUILD_NAME=debian-base-gui 
 ENV LMSBUILD_REPO=ewsdocker
 ENV LMSBUILD_REGISTRY=""
 
-ENV LMSBUILD_DOCKER="${LMSBUILD_REPO}/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
-ENV LMSBUILD_PACKAGE="debian-base:9.6.1"
-
+# =========================================================================
+#
+#   setup /etc/ewsdocker-builds.txt parameters
+#
 # =========================================================================
 
-RUN apt-get -y update \
+ENV LMSBUILD_PARENT="debian-base:${ARG_BASE_VERS}"
+
+ENV LMSBUILD_DOCKER="${LMSBUILD_REPO}/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
+ENV LMSBUILD_PACKAGE="${LMSBUILD_PARENT}"
+
+# =========================================================================
+#
+#   Copy scripts/icons into the proper folders
+#
+# =========================================================================
+
+COPY scripts/. / 
+
+# =========================================================================
+#
+#   Install and configure the GUI system and support files
+#
+# =========================================================================
+
+RUN \
+ # =========================================================================
+ #
+ #    build the apt repo cache and install base support for GUI
+ #
+ # =========================================================================
+    apt-get -y update \
  && apt-get -y upgrade \
  && apt-get install -y \
             dbus-x11 \
@@ -73,22 +150,60 @@ RUN apt-get -y update \
             libglib2.0 \
 	        libx11-xcb-dev \
 	        libx11-xcb1 \
-	        libxrender1 \
             libxt6 \
             xauth \
             xz-utils \
+ #
+ #
+ #
+ && if test "${ARG_VERS_EXT}" = "-gtk2" ; then apt-get -y install libgtk2.0-0 libgtk2.0-bin libgtk2.0-common; fi \ 
+ #
+ #
+ #
+ && if test "${ARG_VERS_EXT}" = "-gtk3" ; then apt-get -y install libgtk-3-0 libgtk-3-bin libgtk-3-common; fi \ 
+ #
+ #
+ #
  && apt-get clean all \
-  \
  #
  # register the build with /etc/ewsdocker-builds.txt
  #
- && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt  
-
-# =========================================================================
-
-COPY scripts/. /
-
-RUN chmod 775 /usr/local/bin/* 
+ #
+ # =========================================================================
+ #
+ #   create a container version tag for FullName (with no tag for 'latest' version)
+ #
+ # =========================================================================
+ #
+ && if [ "${LMSBUILD_VERSION}" != "latest" ]; then LMSBUILD_FULLNAME="${LMSBUILD_NAME}:${LMSBUILD_VERSION}"; fi \
+ #
+ # =========================================================================
+ #
+ #   rename the template to the run script name and enable editing
+ #
+ # =========================================================================
+ #
+ && cd /usr/local/bin \
+ && mv template ${LMSBUILD_NAME}-${LMSBUILD_VERSION} \
+ && chmod 775 ${LMSBUILD_NAME}-${LMSBUILD_VERSION} \
+ #
+ # =========================================================================
+ #
+ #   customize the docker run command
+ #
+ # =========================================================================
+ #
+ && echo -n '-v ${HOME}/.config/docker/' >> /usr/local/bin/${LMSBUILD_NAME}-${LMSBUILD_VERSION}  \
+ && echo "${LMSBUILD_NAME}-${LMSBUILD_VERSION}:/root --name=${LMSBUILD_NAME}-${LMSBUILD_VERSION} ${LMSBUILD_REPO}/${LMSBUILD_FULLNAME}" >> /usr/local/bin/${LMSBUILD_NAME}-${LMSBUILD_VERSION} \
+ #
+ # =========================================================================
+ #
+ #   finish clean-up
+ #
+ # =========================================================================
+ #
+ && chmod +x /usr/bin/lms/* \
+ && printf "${LMSBUILD_DOCKER} (${LMSBUILD_PACKAGE}), %s @ %s\n" `date '+%Y-%m-%d'` `date '+%H:%M:%S'` >> /etc/ewsdocker-builds.txt 
 
 # =========================================================================
 

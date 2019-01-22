@@ -2,22 +2,21 @@
 # =========================================================================
 # =========================================================================
 #
-#	debian-base-gui-9.6.2-gtk2
-#	  docker run command for debian-base-gui
-#		in a Debian 9 docker image.
+#	debian-base-gui
+#	  Run script for ewsdocker/debian-base-gui
 #
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 9.6.2-gtk2
-# @copyright © 2018, 2019. EarthWalk Software.
+# @version 0.1.0
+# @copyright © 2019. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
-# @package debian-base-gui
-# @subpackage debian-base-gui.run
+# @package ewsdocker/debian-base-gui
+# @subpackage template
 #
 # =========================================================================
 #
-#	Copyright © 2018, 2019. EarthWalk Software
+#	Copyright © 2019. EarthWalk Software
 #	Licensed under the GNU General Public License, GPL-3.0-or-later.
 #
 #   This file is part of ewsdocker/debian-base-gui.
@@ -37,6 +36,7 @@
 #   <http://www.gnu.org/licenses/>.
 #
 # =========================================================================
+# =========================================================================
 
 docker run --rm \
            -e DISPLAY=unix${DISPLAY} \
@@ -44,6 +44,4 @@ docker run --rm \
            -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
            -v /etc/localtime:/etc/localtime:ro \
            -v ${HOME}:/user \
-           -v ${HOME}/.config/docker/debian-base-gui-9.6.2-gtk2:/root \
-           --name=debian-base-gui-9.6.2-gtk2 \
-       ewsdocker/debian-base-gui:9.6.2-gtk2
+           
