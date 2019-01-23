@@ -8,7 +8,7 @@
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 9.6.3
+# @version 9.6.4
 # @copyright © 2017-2019. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ewsdocker/debian-base-gui
@@ -55,12 +55,12 @@ ENV DEBIAN_FRONTEND noninteractive
 #   ARG_SOURCE    <= url of the local source (http://alpine-nginx-pkgcache), 
 #                      otherwise external source.
 #
-#   ARG_VERSION   <= version of debian-base-gui (9.6.3)
+#   ARG_VERSION   <= version of debian-base-gui (9.6.4)
 #
 #   ARG_VERS_EXT  <= version of debian-base-gui  to build 
-#					   empty ==> master version (9.6.3),
-#					   -gtk2 ==> GTK-2  version (9.6.3-gtk2)
-#                      -gtk3 ==> GTK-3  version (9.6.3-gtk3)
+#					   empty ==> master version (9.6.4),
+#					   -gtk2 ==> GTK-2  version (9.6.4-gtk2)
+#                      -gtk3 ==> GTK-3  version (9.6.4-gtk3)
 #
 #   ARG_BASE_VERS <= debian-base version (9.6.1)
 #
@@ -71,10 +71,10 @@ ENV DEBIAN_FRONTEND noninteractive
 #
 #     cd to the directory containing debian-base-gui Dockerfile
 #
-#     docker build -t ewsdocker/debian-base-gui:9.6.3-gtk3 \
+#     docker build -t ewsdocker/debian-base-gui:9.6.4-gtk3 \
 #      --network=pkgnet \
 #      --build-arg ARG_VERS_EXT="-gtk3" \
-#      --build-arg ARG_VERSION="9.6.3" \
+#      --build-arg ARG_VERSION="9.6.4" \
 #      --build-arg ARG_SOURCE=http://alpine-nginx-pkgcache .
 #
 #   =======================================================================
@@ -84,7 +84,7 @@ ENV DEBIAN_FRONTEND noninteractive
 #
 #     cd to the directory containing debian-base-gui Dockerfile
 #
-#     docker build -t ewsdocker/debian-base-gui:9.6.3 .
+#     docker build -t ewsdocker/debian-base-gui:9.6.4 .
 #
 # =========================================================================
 
@@ -101,7 +101,7 @@ ARG ARG_BASE_VERS
 #
 # =========================================================================
 
-ENV LMSBUILD_VERSION=${ARG_VERSION:-"9.6.3"}${ARG_VERS_EXT}
+ENV LMSBUILD_VERSION=${ARG_VERSION:-"9.6.4"}${ARG_VERS_EXT}
 ENV LMSBUILD_NAME=debian-base-gui 
 ENV LMSBUILD_REPO=ewsdocker
 ENV LMSBUILD_REGISTRY=""
