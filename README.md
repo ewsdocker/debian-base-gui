@@ -53,6 +53,10 @@ ____
 
 ## Table of Contents
 
+   * [debian-base-gui](https://github.com/ewsdocker/debian-base-gui/wiki/Home)
+      * [GitHub Current Source is EDGE](https://github.com/ewsdocker/debian-base-gui/wiki/QuickStart#github-current-source-is-edge)  
+
+
    * [Quick Start](https://github.com/ewsdocker/debian-base-gui/wiki/QuickStart)
       * [Installing debian-base-gui](https://github.com/ewsdocker/debian-base-gui/wiki/QuickStart#installing-debian-base-gui)  
          * [Environment Variables](https://github.com/ewsdocker/debian-base-gui/wiki/QuickStart#environment-variables)  
