@@ -77,7 +77,7 @@ ____
 
 
    * [Bleeding-edge testing](https://github.com/ewsdocker/debian-base-gui/wiki/EdgeTesting#overview)  
-      * [Installing debian-base-gui](https://github.com/ewsdocker/debian-base-gui/wiki/EdgeTesting#Installing-debian-base-gui)  
+      * [Installing debian-base-gui](https://github.com/ewsdocker/debian-base-gui/wiki/EdgeTesting#installing-debian-base-gui)  
 
 
    * [Docker Tags](https://github.com/ewsdocker/debian-base-gui/wiki/Docker-Tags)  
