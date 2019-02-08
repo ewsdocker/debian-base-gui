@@ -38,10 +38,22 @@
 # =========================================================================
 # =========================================================================
 
-ARG ARG_VERS_EXT=
-ARG ARG_BASE_VERS="9.6.1"
+ARG ARGBUILD_REPO="ewsdocker"
+ARG ARGBUILD_NAME="debian-base-gui"
+#ARG ARGBUILD_VERSION="9.6.4"
+ARG ARGBUILD_EXT=
 
-FROM ewsdocker/debian-base:${ARG_BASE_VERS}
+ARG ARG_SOURCE=
+
+# ==============================================================================
+
+ARG ARG_FROM_REPO="ewsdocker/debian-base"
+ARG ARG_FROM_VERS="9.6.2"
+ARG ARG_FROM_EXT=
+
+FROM "${ARG_FROM_REPO}:${ARG_FROM_VERS}"
+
+# ==============================================================================
 
 MAINTAINER Jay Wheeler <EarthWalkSoftware@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
@@ -55,27 +67,24 @@ ENV DEBIAN_FRONTEND noninteractive
 #   ARG_SOURCE    <= url of the local source (http://alpine-nginx-pkgcache), 
 #                      otherwise external source.
 #
-#   ARG_VERSION   <= version of debian-base-gui (9.6.4)
+#   ARGBUILD_VERSION   <= version of debian-base-gui (9.6.4)
 #
-#   ARG_VERS_EXT  <= version of debian-base-gui  to build 
+#   ARGBUILD_EXT  <= version of debian-base-gui  to build 
 #					   empty ==> master version (9.6.4),
 #					   -gtk2 ==> GTK-2  version (9.6.4-gtk2)
 #                      -gtk3 ==> GTK-3  version (9.6.4-gtk3)
 #
-#   ARG_BASE_VERS <= debian-base version (9.6.1)
+#   ARG_FROM_VERS <= debian-base version (9.6.1)
 #
 #   =======================================================================
 #
-#   For example, build debian-base-gui gtk3 version of the current release
-#        from the local repo:
+#   For example, build debian-base-gui gtk3 version of the current release:
 #
 #     cd to the directory containing debian-base-gui Dockerfile
 #
 #     docker build -t ewsdocker/debian-base-gui:9.6.4-gtk3 \
-#      --network=pkgnet \
-#      --build-arg ARG_VERS_EXT="-gtk3" \
-#      --build-arg ARG_VERSION="9.6.4" \
-#      --build-arg ARG_SOURCE=http://alpine-nginx-pkgcache .
+#      --build-arg ARGBUILD_EXT="-gtk3" \
+#      --build-arg ARGBUILD_VERSION="9.6.4" .
 #
 #   =======================================================================
 #
@@ -90,10 +99,14 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ARG ARG_SOURCE
 
-ARG ARG_VERSION
-ARG ARG_VERS_EXT
+ARG ARGBUILD_REPO
+ARG ARGBUILD_NAME
+ARG ARGBUILD_VERSION
+ARG ARGBUILD_EXT
 
-ARG ARG_BASE_VERS
+ARG ARG_FROM_REPO
+ARG ARG_FROM_VERS
+ARG ARG_FROM_EXT
 
 # =========================================================================
 #
@@ -101,9 +114,9 @@ ARG ARG_BASE_VERS
 #
 # =========================================================================
 
-ENV LMSBUILD_VERSION=${ARG_VERSION:-"9.6.4"}${ARG_VERS_EXT}
-ENV LMSBUILD_NAME=debian-base-gui 
-ENV LMSBUILD_REPO=ewsdocker
+ENV LMSBUILD_VERSION=${ARGBUILD_VERSION:-"9.6.4"}${ARGBUILD_EXT}
+ENV LMSBUILD_NAME=${ARGBUILD_NAME:-"debian-base-gui"} 
+ENV LMSBUILD_REPO=${ARGBUILD_REPO:-"ewsdocker"}
 ENV LMSBUILD_REGISTRY=""
 
 # =========================================================================
@@ -112,7 +125,7 @@ ENV LMSBUILD_REGISTRY=""
 #
 # =========================================================================
 
-ENV LMSBUILD_PARENT="debian-base:${ARG_BASE_VERS}"
+ENV LMSBUILD_PARENT="${ARG_FROM_REPO}:${ARG_FROM_VERS}"
 
 ENV LMSBUILD_DOCKER="${LMSBUILD_REPO}/${LMSBUILD_NAME}:${LMSBUILD_VERSION}" 
 ENV LMSBUILD_PACKAGE="${LMSBUILD_PARENT}"
@@ -160,7 +173,7 @@ RUN \
  #
  # =========================================================================
  #
- && if test "${ARG_VERS_EXT}" = "-gtk2" ; then apt-get -y install libgtk2.0-0 libgtk2.0-bin libgtk2.0-common; fi \ 
+ && if test "${ARGBUILD_EXT}" = "-gtk2" ; then apt-get -y install libgtk2.0-0 libgtk2.0-bin libgtk2.0-common; fi \ 
  #
  # =========================================================================
  #
@@ -168,7 +181,7 @@ RUN \
  #
  # =========================================================================
  #
- && if test "${ARG_VERS_EXT}" = "-gtk3" ; then apt-get -y install libgtk-3-0 libgtk-3-bin libgtk-3-common; fi \ 
+ && if test "${ARGBUILD_EXT}" = "-gtk3" ; then apt-get -y install libgtk-3-0 libgtk-3-bin libgtk-3-common; fi \ 
  #
  # =========================================================================
  #
