@@ -6,7 +6,7 @@ Now with support branches for GTK-3 and GTK-2 versions.
  
 ____  
 #### GitHub Current Source is EDGE
-The _9.6.4_ version is now under development. It will show itself as _EDGE_ in [Docker Tags](https://hub.docker.com/r/ewsdocker/debian-base-gui/tags/).  The _9.6.4_ and _EDGE_ tags are development versions of GitHub source and debian-base-gui Docker image, respectively.  
+The _9.6.5_ version is now under development. It will show itself as _EDGE_ in [Docker Tags](https://hub.docker.com/r/ewsdocker/debian-base-gui/tags/).  The _9.6.5_ and _EDGE_ tags are development versions of GitHub source and debian-base-gui Docker image, respectively.  
 
 ____
 
