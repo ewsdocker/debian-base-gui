@@ -8,6 +8,10 @@ ____
 #### GitHub Current Source is EDGE
 The _9.6.5_ version is now under development. It will show itself as _EDGE_ in [Docker Tags](https://hub.docker.com/r/ewsdocker/debian-base-gui/tags/).  The _9.6.5_ and _EDGE_ tags are development versions of GitHub source and debian-base-gui Docker image, respectively.  
 
+The _9.6.4_ source version (also the current [Docker Tag](https://hub.docker.com/r/ewsdocker/debian-base/tags/) version) is available from the [GitHub Tags](https://github.com/ewsdocker/debian-base/tree/9.6.4) release tree in the _Branch_/_Tags_ selector box.
+
+Documentation for the _9.6.4_ release is still available on the [debian-base wiki](https://github.com/ewsdocker/debian-base/wiki).  
+
 ____
 
 ## Table of Contents
